@@ -9,21 +9,17 @@ F6 = dropBeeper();
 run with java -jar karel.jar
 */
 
-void fillTheHoles()
+void climbTheStairs()
 {
-    fillHole();
-    fillHole();
-    fillHole();
-    fillHole();
+    moveForward();
+    repeat(6) {
+        climbStep();
+    }
 }
 
-void fillHole()
+void climbStep()
 {
-    moveForward();
-    turnRight();
-    moveForward();
-    dropBeeper();
-    turnAround();
+    turnLeft();
     moveForward();
     turnRight();
     moveForward();

@@ -1,0 +1,58 @@
+/*
+**Commands**
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+
+**Conditions**
+F7 = onBeeper()
+F8 = beeperAhead()
+F9 = leftIsClear()
+F10 = frontIsClear()
+F11 = rightIsClear()
+run with java -jar karel.jar
+*/
+
+void saveTheFlower()
+{
+    moveTillFrontWall();
+    pickBeeper();
+    turnLeft();
+    moveTillRightClear();
+    repeat(3)
+    {
+        moveTillFrontWall();
+        turnLeft();
+        moveTillRightClear();
+    }
+    moveForward();
+    dropBeeper();
+    moveTillRightClear();
+    repeat(3)
+    {
+        moveTillFrontWall();
+        turnLeft();
+        moveTillRightClear();
+    }
+    moveTillFrontWall();
+    turnAround();
+}
+
+void moveTillFrontWall()
+{
+    while (frontIsClear()) {
+        moveForward();
+    }
+}
+
+void moveTillRightClear()
+{
+    while(!rightIsClear())
+    {
+        moveForward();
+    }
+    turnRight();
+}
