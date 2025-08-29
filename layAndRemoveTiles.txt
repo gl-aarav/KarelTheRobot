@@ -1,0 +1,39 @@
+/*
+**Commands**
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+
+**Conditions**
+F7 = onBeeper()
+F8 = beeperAhead()
+F9 = leftIsClear()
+F10 = frontIsClear()
+F11 = rightIsClear()
+run with java -jar karel.jar
+*/
+
+void layAndRemoveTiles() {
+    if (onBeeper()) {
+        turnAround();
+    }
+    else {
+        dropBeeper();
+        if (frontIsClear() && !beeperAhead()) {
+            moveForward();
+            layAndRemoveTiles();
+            moveForward();
+        }
+        else {
+            turnLeft();
+            moveForward();
+            layAndRemoveTiles();
+            moveForward();
+            turnRight();
+        }
+        pickBeeper();
+    }
+}
