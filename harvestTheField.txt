@@ -1,0 +1,70 @@
+/*
+**Commands**
+F1 = moveForward();
+F2 = turnLeft();
+F3 = turnAround();
+F4 = turnRight();
+F5 = pickBeeper();
+F6 = dropBeeper();
+
+**Conditions**
+F7 = onBeeper()
+F8 = beeperAhead()
+F9 = leftIsClear()
+F10 = frontIsClear()
+F11 = rightIsClear()
+run with java -jar karel.jar
+*/
+
+void harvestTheField()
+{
+    turnRight();
+    upConfig();
+    
+    downConfig();
+    upConfig();
+    
+    downConfig();
+}
+
+void upConfig()
+{
+    repeat(2)
+    {
+        pickBeeper();
+        moveForward();
+        turnLeft();
+        moveForward();
+        turnRight();
+    }
+    pickBeeper();
+    moveForward();
+    turnLeft();
+    moveForward();
+    pickBeeper();
+    moveForward();
+    turnLeft();
+    moveForward();
+}
+
+void downConfig()
+{
+    repeat(2)
+    {
+        pickBeeper();
+        moveForward();
+        turnLeft();
+        moveForward();
+        turnRight();
+    }
+    pickBeeper();
+    moveForward();
+    turnLeft();
+    moveForward();
+    pickBeeper();
+    turnRight();
+    moveForward();
+    turnRight();
+    moveForward();
+    turnRight();
+}
